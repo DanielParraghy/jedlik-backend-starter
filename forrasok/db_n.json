@@ -1,0 +1,22 @@
+[
+    {
+        "_id": 1,
+        "minMaxExample": 1,
+        "prepTime": 12,
+        "isGlutenFree": true,
+        "description": "leírás szövege ide kerül majdanán k2",
+        "name": "recept neve 1",
+        "kategoria": 1,
+        "dateExample": "2026.07.20"
+    },
+    {
+        "_id": 2,
+        "minMaxExample": 4,
+        "prepTime": 34,
+        "isGlutenFree": false,
+        "description": "ide kerül majdanán k1",
+        "name": "recept neve 2",
+        "kategoria": 2,
+        "dateExample": "2026.07.21"
+    }
+]
