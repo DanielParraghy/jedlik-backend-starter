@@ -1,34 +1,26 @@
 [
     {
         "_id": 1,
-        "field1": "minta k1"
+        "nev": "Ház"
     },
     {
         "_id": 2,
-        "field1": "sample k2"
+        "nev": "Lakás"
     },
     {
         "_id": 3,
-        "field1": "k3"
+        "nev": "Építési telek"
     },
     {
         "_id": 4,
-        "field1": "k4"
+        "nev": "Garázs"
     },
     {
         "_id": 5,
-        "field1": "k5"
+        "nev": "Mezőgazdasági terület"
     },
     {
         "_id": 6,
-        "field1": "k6"
-    },
-    {
-        "_id": 7,
-        "field1": "k7"
-    },
-    {
-        "_id": 8,
-        "field1": "k8"
+        "nev": "Ipari ingatlan"
     }
 ]

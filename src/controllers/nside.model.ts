@@ -5,65 +5,31 @@ import { Schema, model } from "mongoose";
 
 const nsideSchema = new Schema(
     {
-        _id: Number, // default type of PK (with _id identifier): Schema.Types.ObjectId
+        _id: {
+            type: Number,
+            unique: true,
+        },
         kategoria: {
             ref: "oneside", // "onside" -> 1 oldali modell neve, nem kell átírni!
             type: Number,
             required: true,
         },
-        name: {
+        leiras: {
             type: String,
-            required: true,
-            unique: true,
-            maxLength: 60,
         },
-        description: {
-            type: String,
-            required: true,
-            minLength: 10,
-            maxLength: [500, "A leírás maximum 500 karakter lehet!"],
-        },
-        isGlutenFree: {
-            type: Boolean,
-            required: true,
-        },
-        prepTime: {
-            type: Number,
-            required: true,
-            default: 12,
-        },
-        minMaxExample: {
-            type: Number,
-            min: [1, "Too few stars, got {VALUE}"],
-            max: [5, "Too many stars, got {VALUE}"],
-            required: [true, "minMaxExample field is required"],
-        },
-        enumExample: {
-            type: String,
-            enum: {
-                values: ["Coffee", "Tea"],
-                message: "{VALUE} is not supported",
-            },
-        },
-        customValidatorExample: {
-            type: Number,
-            validate: {
-                validator: function (v: number) {
-                    return v % 2 == 0;
-                },
-                message: "Nem páros számot adott meg!",
-            },
-        },
-        dateExample: {
+        hirdetesDatuma: {
             type: Date,
             default: new Date(),
-            max: ["2100-12-31", "Csak 21. századi dátumot adhat meg!"],
-            validate: {
-                validator: function (v: Date) {
-                    return v >= new Date();
-                },
-                message: "Az aktuális dátumnál nem adhat meg korábbi dátumot!",
-            },
+        },
+        tehermentes: {
+            type: Boolean,
+        },
+        ar: {
+            type: Number,
+            required: true,
+        },
+        kepUrl: {
+            type: String,
         },
     },
     // Mongoose Virtuals: https://mongoosejs.com/docs/tutorials/virtuals.html
@@ -75,12 +41,12 @@ const nsideSchema = new Schema(
 // Mongoose also supports populating virtuals.
 // Help: https://mongoosejs.com/docs/tutorials/virtuals.html#populate
 // You can give the "virtualPop" any name you want:
-nsideSchema.virtual("virtualPop", {
-    ref: "oneside",
-    localField: "kategoria",
-    foreignField: "_id", //ref_Field
-    justOne: true,
-});
+// nsideSchema.virtual("virtualPop", {
+//     ref: "oneside",
+//     localField: "kategoria",
+//     foreignField: "_id", //ref_Field
+//     justOne: true,
+// });
 
 // Use virtual for populate in nSide controller:
 // const data = await this.nsideM.find().populate("populateFieldNside", "-_id field1 field2 -field3 ...");
